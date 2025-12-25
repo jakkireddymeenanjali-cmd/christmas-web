@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Merry Christmas Bunny</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: #0b0b0b;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* HEADER */
+header {
+  text-align: center;
+  padding: 45px 20px;
+}
+
+header h1 {
+  font-size: 2.6rem;
+}
+
+.bunny-line {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  color: #ffcccc;
+}
+
+.surprise-line {
+  margin-top: 6px;
+  font-size: 1.1rem;
+  color: #ffd966;
+}
+
+/* EMOTIONAL TEXT */
+.emotional-text {
+  margin-top: 18px;
+  max-width: 720px;
+  margin-inline: auto;
+  color: #e6e6e6;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* BUNNY ANIMATION */
+.bunny-container {
+  text-align: center;
+  margin: 30px auto;
+}
+
+.bunny {
+  font-size: 3.5rem;
+  animation: bunnyBounce 2s infinite ease-in-out;
+}
+
+.bunny-text {
+  margin-top: 8px;
+  font-size: 1rem;
+  color: #ffcccc;
+  animation: fadeInOut 3s infinite;
+}
+
+@keyframes bunnyBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 30px;
+}
+
+/* FLIP CARD */
+.card {
+  perspective: 1000px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backface-visibility: hidden;
+  padding: 15px;
+  text-align: center;
+}
+
+.card-front {
+  background: linear-gradient(135deg, #7a0000, #d40000);
+  font-size: 1.3rem;
+}
+
+.card-back {
+  background: #ffffff;
+  color: #000;
+  transform: rotateY(180deg);
+}
+
+/* MESSAGE CARD */
+.message-card {
+  margin: 35px auto;
+  max-width: 360px;
+  background: #ffffff;
+  color: #000;
+  padding: 22px;
+  border-radius: 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.message-card:hover {
+  transform: scale(1.06);
+}
+
+.hidden-message {
+  display: none;
+  margin-top: 14px;
+  color: #7a0000;
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+/* SNOW */
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #aaa;
+  font-size: 0.9rem;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🎶 CHRISTMAS MUSIC -->
+<audio autoplay loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/12/06/audio_51b3cfa5e1.mp3" type="audio/mpeg">
+</audio>
+
+<!-- ❄️ SNOW -->
+<canvas id="snow"></canvas>
+
+<header>
+  <h1>🎄 Merry Christmas 🎄</h1>
+
+  <div class="bunny-line">Hi Bunny, this is for you 🐰</div>
+  <div class="surprise-line">I have a surprise for you 🎁</div>
+
+  <p class="emotional-text">
+    This little Christmas page is not just a websit, Bunny, it’s a piece of my heart.
+    Every word here carries warmth, care, and silent prayers for you.
+    Even when words fall short, I hope you feel how special you are to me.
+    This season reminds us of love, hope, and light — and I truly wish all of that finds you,
+    today and always 🤍
+  </p>
+</header>
+
+<!-- 🐰 BUNNY -->
+<div class="bunny-container">
+  <div class="bunny">🐰</div>
+  <p class="bunny-text">You are always in my prayers 🤍</p>
+</div>
+
+<!-- FLIP CARDS -->
+<section class="grid">
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">✝️ Jesus</div>
+      <div class="card-back">
+        “For unto us a Child is born, unto us a Son is given.” – Isaiah 9:6
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">⭐ Faith</div>
+      <div class="card-back">
+        May the light of Christ guide you always.
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-inner">
+      <div class="card-front">🎄 Love</div>
+      <div class="card-back">
+        Jesus is the reason for this beautiful season.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 💌 TAP MESSAGE -->
+<div class="message-card" onclick="openMessage()">
+  Tap to Open 💌
+  <div class="hidden-message" id="message">
+    May Jesus Christ bless you abundantly ✝️<br><br>
+
+    May He protect you in every step,<br>
+    give you strength in weakness,<br>
+    peace in heavy moments,<br>
+    and joy that never fades 🌟<br><br>
+
+    You are remembered in my prayers 🙏<br><br>
+
+    🎄 Merry Christmas, Bunny 🎄
+  </div>
+</div>
+
+<footer>
+  Made with ❤️ and prayer
+</footer>
+
+<script>
+function openMessage() {
+  document.getElementById("message").style.display = "block";
+}
+
+/* SNOW EFFECT */
+const canvas = document.getElementById("snow");
+const ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let snowflakes = [];
+for (let i = 0; i < 120; i++) {
+  snowflakes.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    r: Math.random() * 4 + 1,
+    d: Math.random()
+  });
+}
+
+function drawSnow() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = "white";
+  ctx.beginPath();
+  snowflakes.forEach(f => {
+    ctx.moveTo(f.x, f.y);
+    ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
+  });
+  ctx.fill();
+  snowflakes.forEach(f => {
+    f.y += Math.pow(f.d, 2) + 1;
+    if (f.y > canvas.height) {
+      f.y = 0;
+      f.x = Math.random() * canvas.width;
+    }
+  });
+}
+
+setInterval(drawSnow, 30);
+</script>
+
+</body>
+</html>
